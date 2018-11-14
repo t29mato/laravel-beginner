@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('person', 'PersonController@index');
+Route::get('person/find', 'PersonController@find');
+Route::post('person/find', 'PersonController@search');
