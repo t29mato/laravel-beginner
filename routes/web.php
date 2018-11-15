@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HelloController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,3 +34,7 @@ Route::get('board/', 'BoardController@index');
 
 Route::get('board/add', 'BoardController@add');
 Route::post('board/add', 'BoardController@create');
+
+Route::resource('rest', 'RestappController');
+
+Route::get('hello/rest', 'HelloController@rest');
