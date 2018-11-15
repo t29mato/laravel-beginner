@@ -9,8 +9,10 @@ class PersonController extends Controller
 {
     public function index(Request $request)
     {
-        $items = Person::all();
-        return view('person.index', ['items' => $items]);
+        $hasItem = Person::has('boards')->get();
+        $noItem = Person::doesntHave('boards')->get();
+        $param = ['hasItems' => $hasItem, 'noItems' => $noItem];
+        return view('person.index', $param);
     }
 
     public function find(Request $request)

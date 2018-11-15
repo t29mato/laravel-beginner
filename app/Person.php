@@ -15,7 +15,6 @@ class Person extends Model
         'age' => 'integer|min:0|max:150'
     );
 
-
     protected static function boot()
     {
         parent::boot();
@@ -40,5 +39,15 @@ class Person extends Model
     public function scopeAgeLessThan($query, $n)
     {
         return $query->where('age', '<=', $n);
+    }
+
+    public function board()
+    {
+        return $this->hasOne('App\Board');
+    }
+
+    public function boards()
+    {
+        return $this->hasMany('App\Board');
     }
 }
